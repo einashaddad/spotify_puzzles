@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 '''
 Usage:
-$python zipfsongs.py <tests.txt>
+$python zipfsongs.py <tests.txt
 '''
 import sys
 
