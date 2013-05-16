@@ -28,15 +28,21 @@ def song_qualities(song_frequencies):
         song_name = song[1]
         song_frequency = float(song[0])
         track_num = i + 1
-        zipf = first_song_freq / track_num
-        song_ranks.append((song_name, song_frequency/zipf))
+        song_ranks.append((song_name, song_frequency * track_num))
     return sorted(song_ranks, key=lambda tup: tup[1], reverse=True)
 
 def get_output_count(l_songs):
     stats = l_songs[0].split(' ')
-    return int(stats[1])
+    num_of_tracks = int(stats[0])
+    output_count = int(stats[1])
+    if num_of_tracks > 50000:
+        sys.exit('Too many tracks in album')
+    if output_count > num_of_tracks:
+        sys.exit('Number of tracks required exceeds amount in album')
+    return output_count
 
 if __name__ == '__main__':
     lines = sys.stdin.read()
     ranks = zipfsongs(lines.rstrip())
-    print '\n'.join(ranks)
+    for rank in ranks:
+        sys.stdout.write("%s\n" % rank)
