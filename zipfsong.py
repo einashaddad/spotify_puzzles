@@ -18,8 +18,8 @@ def zipfsongs(file_content):
 
 def song_qualities(song_frequencies):
     '''
-    Calculates the quality according to zipf score and actual frequency,
-    returns a list of tuples sorted by quality first and position
+    Calculates the quality according to position in album and number of 
+    listens, returns a list of tuples sorted by quality first and position
     in album second. 
     '''
     first_song_freq = float(song_frequencies[0][0])
@@ -33,13 +33,7 @@ def song_qualities(song_frequencies):
 
 def get_output_count(l_songs):
     stats = l_songs[0].split(' ')
-    num_of_tracks = int(stats[0])
-    output_count = int(stats[1])
-    if num_of_tracks > 50000:
-        sys.exit('Too many tracks in album')
-    if output_count > num_of_tracks:
-        sys.exit('Number of tracks required exceeds amount in album')
-    return output_count
+    return int(stats[1])
 
 if __name__ == '__main__':
     lines = sys.stdin.read()
