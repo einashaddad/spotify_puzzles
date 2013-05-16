@@ -5,5 +5,5 @@ Solutions to Spotify Puzzles
 
 To run:
     
-    python zipfsongs.py <tests.txt
+    python zipfsongs.py <testfile.txt
     
